@@ -1,0 +1,14 @@
+﻿@model Tuple<int, List<Questionnaire.Entities.Vendor>>
+<div class="vendor-list">
+@foreach (var vendor in Model.Item2)
+{
+<div class="vendor row-fluid">
+    <p class="span4"><strong>@vendor.Name</strong></p>
+    <p id="contactMe" class="span8">
+        @Html.ActionLink(vendor.LinkDisplayText, "Index", "VendorClicksCounter", new { vendorId = vendor.Id, categoryId = @Model.Item1 }, new { @target = "_blank" })
+        <input data-vendor="@Html.Raw(vendor.Id.ToString())" data-category="@Html.Raw(Model.Item1.ToString())" data-title="@Html.Raw(vendor.Name)" type="button" value="Contact me" class="contactme btn btn-small pull-right"/>
+    </p>
+</div>
+}
+</div>
+

@@ -1,0 +1,61 @@
+﻿@model Questionnaire.Entities.Category
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="span10">
+        @if(Model.Questions.Count == 0)
+        {
+            <legend>Are you sure you want to delete category #@Model.Index</legend>
+            <fieldset>
+    
+            <h5>Title</h5>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Title)
+            </div>
+        
+            <h5>Index</h5>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Index)
+            </div>
+
+            <h5>Weight</h5>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Weight)
+            </div>
+
+            <br />
+
+            </fieldset>
+            using (Html.BeginForm()) {
+            <p>
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a class="btn" href="../">Back to list</a>
+            </p>
+            }   
+        }
+        else
+        {
+            <legend>Cannot delete category #@Model.Index</legend>
+            
+            <h5 class="text-error">There are questions assigned to this Category. Delete or remap them to another category.</h5>
+            <table class="table table-bordered" style="table-layout: fixed;">
+            @foreach (var Question in Model.Questions)
+            {
+                 <tr>
+                 <td>@Question.Index. @Question.Title</td>
+                 </tr>
+            }
+            </table>
+            <a class="btn" href="../">Back to list</a>
+        }
+
+</div>
+</div>
+</div>

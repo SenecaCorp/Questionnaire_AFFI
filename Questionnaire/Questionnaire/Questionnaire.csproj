@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A21359F4-15CB-4BD7-B898-7BDFA2598EF9}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuestionnairePrototype</RootNamespace>
+    <AssemblyName>QuestionnairePrototype</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AdminCategoriesController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminQuestionsController.cs" />
+    <Compile Include="Controllers\AdminVendorCategoryController.cs" />
+    <Compile Include="Controllers\AdminVendorsController.cs" />
+    <Compile Include="Controllers\QuestionnaireReportController.cs" />
+    <Compile Include="Controllers\SignInController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="Controllers\VendorClicksCounterController.cs" />
+    <Compile Include="Infrastructure\ExcelWriter.cs" />
+    <Compile Include="Infrastructure\FormExtensions.cs" />
+    <Compile Include="Infrastructure\MailConfigurator.cs" />
+    <Compile Include="Models\Admin\AdminCategory.cs" />
+    <Compile Include="Models\Admin\AdminQuestion.cs" />
+    <Compile Include="Models\Admin\UserDetails.cs" />
+    <Compile Include="Models\Membership\DemographicDataContainer.cs" />
+    <Compile Include="Models\QuestionnaireReports\QuestionnaireReportForUser.cs" />
+    <Compile Include="Models\Membership\SignInModel.cs" />
+    <Compile Include="Models\Membership\SignUpModel.cs" />
+    <Compile Include="Models\Membership\UserRepository.cs" />
+    <Compile Include="Models\Questionnaire\AFFIHeaderModel.cs" />
+    <Compile Include="Models\Questionnaire\QuestionnaireAnswersRepository.cs" />
+    <Compile Include="Models\Questionnaire\QuestionnaireRepository.cs" />
+    <Compile Include="Models\Questionnaire\QuestionnaireWithSelectedAnswers.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Infrastructure\QuestionnaireFormCollectionParser.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CssJsViewAppender.cs" />
+    <Compile Include="Infrastructure\QuestionnaireHelper.cs" />
+    <Compile Include="Infrastructure\QuestionnaireInitializer.cs" />
+    <Compile Include="Models\QuestionnaireContext.cs" />
+    <Compile Include="Models\QuestionnaireReports\CategoryRecomendation.cs" />
+    <Compile Include="Models\QuestionnaireReports\OverallRecomendation.cs" />
+    <Compile Include="Models\QuestionnaireReports\QuestionnaireReport.cs" />
+    <Compile Include="Models\QuestionnaireReports\QuestionRecomendation.cs" />
+    <Compile Include="Models\Admin\UsersList.cs" />
+    <Compile Include="Models\Questionnaire\QuestionnaireWithSelectedAnswersForUser.cs" />
+    <Compile Include="Models\Questionnaire\UserData.cs" />
+    <Compile Include="Models\Vendors\CategoryWithBindedVendors.cs" />
+    <Compile Include="Models\Vendors\ICategoryWithBindedVendors.cs" />
+    <Compile Include="Models\Vendors\OverallCategoryWithBindedVendors.cs" />
+    <Compile Include="Models\Vendors\VendorEmailStatisticEntry.cs" />
+    <Compile Include="Models\Vendors\VendorWithStatisic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap-additions.css" />
+    <Content Include="Content\css\bootstrap-full\bootstrap-responsive.min.css" />
+    <Content Include="Content\css\bootstrap-full\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\print.css" />
+    <Content Include="Content\css\questionnaire.css" />
+    <Content Include="Content\img\affi_logo.jpg" />
+    <Content Include="Content\img\bg.jpg" />
+    <Content Include="Content\img\blank.gif" />
+    <Content Include="Content\img\headbg.png" />
+    <Content Include="Content\img\high_bg.png" />
+    <Content Include="Content\img\low_bg.png" />
+    <Content Include="Content\img\mail\._blank.gif" />
+    <Content Include="Content\img\mail\._mail_footer.gif" />
+    <Content Include="Content\img\mail\._mail_header.gif" />
+    <Content Include="Content\img\mail\._mail_high_risk.gif" />
+    <Content Include="Content\img\mail\._mail_low_risk.gif" />
+    <Content Include="Content\img\mail\._mail_medium_risk.gif" />
+    <Content Include="Content\img\mail\blank.gif" />
+    <Content Include="Content\img\mail\mail_footer.gif" />
+    <Content Include="Content\img\mail\mail_header.gif" />
+    <Content Include="Content\img\mail\mail_high_risk.gif" />
+    <Content Include="Content\img\mail\mail_low_risk.gif" />
+    <Content Include="Content\img\mail\mail_medium_risk.gif" />
+    <Content Include="Content\img\medium_bg.png" />
+    <Content Include="Content\img\screen\._bg.jpg" />
+    <Content Include="Content\img\screen\._high_bg.png" />
+    <Content Include="Content\img\screen\._low_bg.png" />
+    <Content Include="Content\img\screen\._medium_bg.png" />
+    <Content Include="Content\img\screen\._screen_high.png" />
+    <Content Include="Content\img\screen\._screen_low.png" />
+    <Content Include="Content\img\screen\._screen_medium.png" />
+    <Content Include="Content\img\screen\._seneca_logo.png" />
+    <Content Include="Content\img\screen\._top_bg.png" />
+    <Content Include="Content\img\screen\bg.jpg" />
+    <Content Include="Content\img\screen\high_bg.png" />
+    <Content Include="Content\img\screen\low_bg.png" />
+    <Content Include="Content\img\screen\medium_bg.png" />
+    <Content Include="Content\img\screen\screen_high.png" />
+    <Content Include="Content\img\screen\screen_low.png" />
+    <Content Include="Content\img\screen\screen_medium.png" />
+    <Content Include="Content\img\screen\seneca_logo.png" />
+    <Content Include="Content\img\screen\src\._headbg.png" />
+    <Content Include="Content\img\screen\src\._seneca_logo_invert.png" />
+    <Content Include="Content\img\screen\src\headbg.png" />
+    <Content Include="Content\img\screen\src\seneca_logo_invert.png" />
+    <Content Include="Content\img\screen\top_bg.png" />
+    <Content Include="Content\img\seneca_logo.png" />
+    <Content Include="Content\img\top_bg.png" />
+    <Content Include="Global.asax" />
+    <Content Include="obj\Debug\QuestionnairePrototype.csproj.FileListAbsolute.txt" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap.full.min.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\custom.validate.form.js" />
+    <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\jquery-1.8.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.1.js" />
+    <Content Include="Scripts\jquery-1.8.1.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\questionnaire.validate.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\spin.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\img\mail\src\._mail_footer.psd" />
+    <None Include="Content\img\mail\src\._mail_header.psd" />
+    <None Include="Content\img\mail\src\mail_footer.psd" />
+    <None Include="Content\img\mail\src\mail_header.psd" />
+    <None Include="Content\img\screen\src\._mail_footer.psd" />
+    <None Include="Content\img\screen\src\._mail_header.psd" />
+    <None Include="Content\img\screen\src\._Seneca_App_Template.psd" />
+    <None Include="Content\img\screen\src\._seneca_logo.psd" />
+    <None Include="Content\img\screen\src\mail_footer.psd" />
+    <None Include="Content\img\screen\src\mail_header.psd" />
+    <None Include="Content\img\screen\src\Seneca_App_Template.psd" />
+    <None Include="Content\img\screen\src\seneca_logo.psd" />
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\SignIn\Index.cshtml" />
+    <Content Include="Views\SignUp\Index.cshtml" />
+    <Content Include="Views\Shared\_SignInSignUpLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Shared\VendorsListForCategory.cshtml" />
+    <Content Include="Views\AdminVendors\Index.cshtml" />
+    <Content Include="Views\AdminVendors\Details.cshtml" />
+    <Content Include="Views\AdminVendors\Create.cshtml" />
+    <Content Include="Views\AdminVendors\Edit.cshtml" />
+    <Content Include="Views\AdminVendors\Delete.cshtml" />
+    <Content Include="Views\AdminVendorCategory\Index.cshtml" />
+    <Content Include="Views\QuestionnaireReport\Index.cshtml" />
+    <Content Include="Views\QuestionnaireReport\MailTemplate.cshtml" />
+    <Content Include="Views\Shared\OverallVendorList.cshtml" />
+    <Content Include="Views\Shared\AFFIHeader.cshtml" />
+    <Content Include="Views\QuestionnaireReport\ReportSaved.cshtml" />
+    <Content Include="Views\AdminQuestions\Index.cshtml" />
+    <Content Include="Views\AdminQuestions\Create.cshtml" />
+    <Content Include="Views\AdminQuestions\Edit.cshtml" />
+    <Content Include="Views\AdminQuestions\EditAnswer.cshtml" />
+    <Content Include="Views\AdminCategories\Index.cshtml" />
+    <Content Include="Views\AdminCategories\Create.cshtml" />
+    <Content Include="Views\AdminCategories\Edit.cshtml" />
+    <Content Include="Views\AdminCategories\EditRisk.cshtml" />
+    <Content Include="Views\AdminVendors\Statistics.cshtml" />
+    <Content Include="Views\Admin\AddUser.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\AdminQuestions\AddAnswer.cshtml" />
+    <Content Include="Views\AdminQuestions\DeleteAnswer.cshtml" />
+    <Content Include="Views\AdminQuestions\Delete.cshtml" />
+    <Content Include="Views\AdminCategories\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Questionnaire.Entities\Questionnaire.Entities\Questionnaire.Entities.csproj">
+      <Project>{64E3D715-7613-4D18-893A-C0C5F57B60C5}</Project>
+      <Name>Questionnaire.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Questionnaire.Mailing\Questionnaire.Mailing\Questionnaire.Mailing.csproj">
+      <Project>{9D258341-FF92-433E-816E-F6B252348F96}</Project>
+      <Name>Questionnaire.Mailing</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58196</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

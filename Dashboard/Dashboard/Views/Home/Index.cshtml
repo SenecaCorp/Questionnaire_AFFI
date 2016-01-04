@@ -1,0 +1,87 @@
+﻿@model Dashboard.Models.DashboardModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+<div class="container">
+    @if (Model.LastPurchase != null)
+    {
+    <div class="well purchase-activated">
+        <h4>Purchase successfully activated</h4>
+        <p>
+            You have activated the purchase for the facility <strong>@Model.LastPurchase.FacilityName</strong>.
+            To access the <a href="http://affi-fsma.seneca.com/signIn" target="_blank">Self-Assessment</a>, use the following credentials:
+        </p>
+        <p>
+            Email: <span class="label label-info">@Model.LastPurchase.Email</span><br />
+            Password: <span class="label label-success">@Model.LastPurchasePassword</span>
+        </p>
+        <p>The person listed below as the principal contract for the Facility assessment will also receive an email with this information (including the Password and a link to the Self Assessment) that can then be used to complete (or edit ) any Self Assessment for this Facility.</p>
+        <p>This purchase will expire on <strong>@Model.LastPurchase.UserExpirationDate.ToLongDateString()</strong>.</p>
+    </div>
+    }
+    <p>To activate your purchase so that you will be able to take the Self Assessment, just fill in a “Facility Name” and then fill in the Name and  Email address of the principal person who will be responsible for the Self Assessment.  Then Click on the “Activate“ button.  You will then be provided with the log-in information, including the unique Password for this Facility.    The person listed below as the principal contract will also receive an email with all of this information that can then be used to complete (or edit) any Self Assessment.</p>
+    <h3>Non-activated purchases</h3>
+    <table class="table table-bordered table-condensed">
+        <thead><tr>
+            <th>Facility name</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of purchase</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            @foreach (var dashboardItem in Model.NonActivatedItems)
+            {
+                @Html.Partial("PurchasedItemForm", new Dashboard.Models.PurchasedItemModel("", dashboardItem.Name, dashboardItem.Email, dashboardItem.DateOfPurchase.ToString("G")))
+            }
+        </tbody>
+    </table>
+    <h3>Active purchases</h3>
+    <table class="table table-bordered table-condensed">
+        <thead><tr>
+            <th>Facility name</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of purchase</th>
+            <th>Activation date</th>
+            <th>Expiration date</th>
+        </tr></thead>
+        <tbody>
+            @foreach (var dashboardItem in Model.ActiveItems)
+            {
+            <tr>
+                <td>@dashboardItem.Facility</td>
+                <td>@dashboardItem.Name</td>
+                <td>@dashboardItem.Email</td>
+                <td>@dashboardItem.DateOfPurchase.ToShortDateString()</td>
+                <td>@dashboardItem.UserRegistrationDate.ToShortDateString()</td>
+                <td>@dashboardItem.UserExpirationDate.ToShortDateString()</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <h3>Expired purchases</h3>
+    <table class="table table-bordered table-condensed">
+        <thead><tr>
+            <th>Facility name</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of purchase</th>
+            <th>Activation date</th>
+            <th>Expiration date</th>
+        </tr></thead>
+        <tbody>
+            @foreach (var dashboardItem in Model.ExpiredItems)
+            {
+            <tr>
+                <td>@dashboardItem.Facility</td>
+                <td>@dashboardItem.Name</td>
+                <td>@dashboardItem.Email</td>
+                <td>@dashboardItem.DateOfPurchase.ToShortDateString()</td>
+                <td>@dashboardItem.UserRegistrationDate.ToShortDateString()</td>
+                <td>@dashboardItem.UserExpirationDate.ToShortDateString()</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<QuestionnairePrototype.Models.Admin.AdminQuestion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="span9">
+            
+            <legend>Questions</legend>
+             @Html.ActionLink("Add new question", "Create", new {}, new { @class = "button btn btn-primary" })
+           <br /><br />
+            <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    @*<th style="width: 3%">@Html.ActionLink("Index", "Index", new { sortType = 0 })</th>*@
+                    <th style="width: 64%">Title</th>
+                    <th style="width: 5%">@Html.ActionLink("Quest.#", "Index", new { sortType = 1 })</th>
+                    <th style="width: 19%">@Html.ActionLink("Category", "Index", new { sortType = 2 })</th>
+                    <th style="width: 5%"/>
+                    <th style="width: 5%"/>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model) {
+                <tr>
+                   @* <td>
+                        @item.id.
+                    </td>*@
+                    <td>
+                       @item.shortText
+                       @* @Html.ActionLink(item.shortText, "Edit", new { id=item.id })*@
+                    </td>
+                    <td>
+                        @item.Index
+                    </td>
+                    <td>@item.CategoryName</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "button btn btn-warning btn-small" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "button btn btn-danger btn-small" })
+                    </td>
+                </tr>
+            }
+            </table>
+        </div>
+    </div>
+</div>

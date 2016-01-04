@@ -1,0 +1,48 @@
+﻿@model Questionnaire.Entities.Vendor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="span10">
+        <h2>Details</h2>
+
+        <fieldset>
+            <legend>Vendor</legend>
+
+            <b>Name</b>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Name)
+            </div>
+            <br />
+            <b>Link to Website</b>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.LinkToWebsite)
+            </div>
+            <br />
+            <b>Link text for display</b>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.LinkDisplayText)
+            </div>
+            <br />
+            <b>Email</b>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Email)
+            </div>
+            <br />
+            <b>Description</b>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Description)
+            </div>
+            <br />
+        </fieldset>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        </div>
+    </div>
+</div>

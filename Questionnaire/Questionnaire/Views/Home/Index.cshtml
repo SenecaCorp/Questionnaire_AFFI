@@ -1,0 +1,248 @@
+﻿@using QuestionnairePrototype.Infrastructure
+@model QuestionnairePrototype.Models.Questionnaire.QuestionnaireWithSelectedAnswersForUser
+@{
+    ViewBag.Title = "FSMA Self-Assessment Form";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+@section JS{
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        (function ($) {
+            // rule that validates that any radio is selected in the whole form
+            $.validator.addMethod("anychecked", function (val, elem, params) {
+                var form = $(elem).parents("form")[0];
+                var radios = $(form).find('input:radio:checked');
+                return (radios.length > 0);
+            });
+
+            // don't ignore hidden inputs during validation. this is needed
+            // because we attach 'anychecked' rule to a hidden field
+            $.validator.setDefaults({
+                ignore: ":hidden[data-val!=true]" // default ":hidden"
+            });
+
+            // add rule to elements with 'data-val-anychecked' attribute
+            $.validator.unobtrusive.adapters.addBool("anychecked", "anychecked");
+        })(window.jQuery);
+        
+        
+        var sessionTimeout = 480; //It's horrible, but I'm experiencing problems parcing system prefs
+        var timeOnPageLoad = new Date();
+
+        
+        //To redirect to the welcome page
+        setTimeout('RedirectToWelcomePage()', sessionTimeout * 60 * 1000);
+
+        //Session timeout
+        function RedirectToWelcomePage() {
+            alert("Your session has timed out. Please sign in again.");
+            window.location = "../SignIn";
+        }
+    </script>
+    <script src="@Url.Content("~/Scripts/questionnaire.validate.js")" type="text/javascript"></script>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("li.question").each(function (index, question) {
+            var allQuestionRadios = $(question).find("input").filter(function (index, input) {
+                return input.type == "radio";
+            });
+            var checkedQuestionRadios = allQuestionRadios.filter(function (index, input) {
+                return input.checked;
+            });
+
+            var resetLink = $(question).find(".reset-link");
+
+            if (checkedQuestionRadios.length == 0) {
+                resetLink.hide();
+            }
+
+            allQuestionRadios.each(function (index, radio) {
+                $(radio).click(function (event) {
+                    resetLink.show();
+                });
+            });
+
+            resetLink.click(function (event) {
+                $(question).find("input").attr("checked", false);
+                resetLink.hide();
+            });
+        });
+
+        var form = document.forms["questionnaireForm"];
+        var completeLaterOnSubmit = form.completeLaterOnSubmit;
+
+        // initialize validation of completeLaterOnSubmit hidden input as we attached 'anychecked' rule to it
+        $.validator.unobtrusive.parse($(completeLaterOnSubmit));
+
+        $("#completeLaterBtn").click(saveForm());
+        $("#getReportBtn").click(submitFormIfValid(false));
+
+        function saveForm() {
+            return function (event) {
+                event.preventDefault();
+                completeLaterOnSubmit.value = true;
+                form.submit();
+            }
+        }
+
+        function submitFormIfValid(completeLater) {
+            return function (event) {
+                event.preventDefault();
+                completeLaterOnSubmit.value = completeLater;
+                if ($(form).valid()) {
+                    form.submit();
+                }
+            }
+        }
+    });
+</script>
+<div class="container"><div class="page questionnaire">
+
+    @Html.Partial("AFFIHeader", new QuestionnairePrototype.Models.Questionnaire.AFFIHeaderModel(@Model.UserData.FacilityName, @Model.UserData.Name, @Model.UserData.Email, @Model.WasEverSubmitted, @Model.lastSubmitted))
+
+    <div  class="span12 pagination-centered"><h3>AFFI FSMA FOOD SAFETY READINESS SELF-ASSESSMENT: <br />HAZARD ANALYSIS AND PREVENTIVE CONTROLS</h3></div>
+
+    <p>The <i>FDA Food Safety Modernization Act</i> (FSMA) is the most sweeping change to the food safety system since the <i>Food Drug and Cosmetic Act of 1938</i>.  This AFFI FSMA Food Safety Readiness Self-Assessment is divided into the following 11 sections, with primary emphasis on the preventive controls contained in Section 103 of FSMA:</p>
+
+    <div style="margin-left: 40px;">
+    <ol type="I">
+    <li>Exclusions</li>
+    <li>Hazard Analysis</li>
+    <li>Allergen Control</li>
+    <li>Sanitation</li>
+    <li>Recall</li>
+    <li>Current Good Manufacturing Practices (cGMPs)</li>
+    <li>Supplier Verification</li>
+    <li>Corrective Actions</li>
+    <li>Validation & Verification</li>
+    <li>Monitoring, Records & Recordkeeping</li>
+    <li>Training</li>
+    </ol></div>
+
+    <p>This Self-Assessment Guide is intended to serve as a reference document for companies developing hazard analysis and preventive controls programs in preparation for FDA's implementation of FSMA. Please note that the information presented is not intended to be all-inclusive but instead represents a basic set of information which is generally applicable to most companies in developing and implementing such programs. Completion of the Self-Assessment does not ensure compliance with applicable statutory and regulatory requirements. The Guide is not intended as nor does it constitute legal advice. In developing and implementing FSMA compliance programs, it is recommended that companies consult an attorney and utilize the Self-Assessment tool with consideration given to their specific products, activities, and infrastructure and customer expectations.</p>
+
+    <div class="legend">Background</div>
+    
+    <u><b>FSMA Section 103 – Hazard Analysis and Risk-Based Preventive Controls</b></u>
+
+    <p>FSMA mandates that registered food facilities implement a written preventive controls plan.    This involves: (1) evaluating the hazards that could affect food safety, (2) specifying what preventive steps, or controls, will be put in place to significantly minimize or prevent the hazards, (3) specifying how the facility will monitor these controls to ensure they are working, (4) maintaining routine records of the monitoring, and (5) specifying what actions the facility will take to correct problems that arise.  FSMA requires FDA to issue regulations and guidance document implementing Section 103, but FDA has not yet done so.     Accordingly, information in this Self-Assessment is derived from the statute and will form the foundation for compliance with the law. Where appropriate, additional information provided is based on experience with similar regulatory programs (e.g., Seafood HACCP, Juice HACCP).</p>
+
+    <p>Section 103 –Hazard Analysis and Risk-Based Preventive Controls has several subparts. This self-assessment survey is divided into sub-sections to cover significant provisions in the statute.  The following is background information regarding each of the sub-sections included in the Self-Assessment.</p>
+    <p><b>I. Exclusions</b> <br />Preventive Controls will not apply to all food and animal feed.  Two of the principal exclusions from Preventive Controls are (i) food that is not regulated by FDA (i.e., food regulated by USDA), and (ii) food excluded from Section 103 because it is the subject of a similar regulatory scheme (i.e., seafood, juice HACCP) or is addressed under another section of FSMA other than Section 103 (e.g., fresh unprocessed produce falls under Section 105).  In addition, FDA may issue exemptions or modifications of the requirements of Section 103 for certain types of facilities.</p>
+    <p><b>II. Hazard Analysis</b> <br />The key to identifying and implementing preventive controls is to determine what hazards could occur.  Each facility must develop a written hazard analysis. </p>
+    <p><b>III. Allergen Control</b> <br />Allergens or ingredients to which some people have sensitivities/intolerances are becoming a leading cause of easily preventable recalls. FSMA mandates facilities have allergen control programs. </p>
+    <p><b>IV. Sanitation</b> <br />FDA will expect a facility to have written Sanitation Standard Operating Procedures (SSOPs), with sanitation records showing who performed a cleaning activity, what they cleaned, where they cleaned, when they cleaned, and training for all relevant employees. </p>
+    <p><b>V. Recall Procedures</b> <br />A recall plan is specifically identified in FSMA as a preventive control. Although recall activities do not directly control a food safety process, a proper recall program can prevent or lower the number of injuries or illnesses caused by adulterated or potentially adulterated foods.    By requiring each facility to have  a recall plan, FSMA builds on the information facilities are required to maintain under the Public Health Security and Bioterrorism Preparedness and Response Act of 2002 (the Bioterrorism Act).</p>
+    <p><b>VI. Current Good Manufacturing Practices</b> <br />Current Good Manufacturing Practices (cGMPs) are described in 21CFR Part 110.  These regulations cover facility conditions, water quality, pest controls, process controls, sanitation, sanitary controls, training of associates, and defect action levels to name a few.  FSMA strengthens cGMPs requirements by requiring a written Food Safety Plan that addresses implementation of and compliance with cGMPs.</p>
+    <p><b>VII. Supplier Verification</b> <br />Part of preventive controls is knowing where your materials and products come from, with particular attention to how your suppliers’ food safety activities affect the safety of your products.  In addition, importers are required to ensure that the products that they import meet domestic requirements, including FSMA.</p>
+    <p><b>VIII. Corrective Actions</b> <br />Under FSMA facilities are required to document instances of non-conformance, instances where corrective actions were taken, and the efficacy of the corrective actions. In addition, facilities must have procedures to reduce the likelihood of a failure reoccurring and ensure that when a failure does occur, all affected food is evaluated for safety and none is released if its safety cannot be assured. </p>
+    <p><b>IX. Validation & Verification</b> <br />Under FSMA facilities must ensure that the preventive controls implemented are adequate to control the hazards identified during the hazard analysis. They must also conduct verification activities to ensure that monitoring is taking place, corrective actions are handled appropriately, and that the preventive controls are effectively controlling the hazards.  Verification activities must include product and environmental testing programs where appropriate.</p><p>Validation and Verification are often confused and incorrectly used interchangeably. <b>Validation</b> is obtaining evidence that your control measure or combination of control measures, if properly implemented, is or are capable of controlling hazards to a specified outcome. <b>Verification</b> is the application of methods, procedures, tests and other evaluations, in addition to monitoring, to determine whether your control measures are or have been operating as intended.</p>
+    <p><b>X. Monitoring, Records & Recordkeeping </b> <br />FSMA requires facilities to monitor the effectiveness of the preventive controls implemented. The statute also requires facilities to have a written food safety plan, as well as records documenting monitoring activities, instances of nonconformance material to food safety, results of testing and other verification activities, instances where corrective actions were implemented, and the efficacy of preventive controls and corrective actions. In addition, under FSMA FDA has greater record review authority.</p>
+    <p><b>XI. Training</b> <br />As a result of FSMA, facilities will be expected to have trained employees to help develop and implement the food safety plan. </p>
+    <br />
+    <div class="legend">AFFI Self-Assessment – Instructions:</div>
+
+    <p><b>Please complete the following self-assessment and then click on the “Get Self-Assessment Report” at the end of the questionnaire.</b></p>
+
+    <p>Your facility’s self-assessment report will then be immediately summarized and displayed, and you will be sent a copy of both your answers and the report by email.  You may re-take this self-assessment questionnaire as many times as you want for the three month period starting when your company paid for the self-assessment, and the resulting report will be updated accordingly.<br />These questions are designed to help you determine to what extent your facility’s food safety programs have been developed or implemented in alignment with FSMA Section 103 as written and expected to be implemented.   There is no one situation that fits every facility; <b>so, please select the answer that MOST closely describes your particular facility. </b></p>
+
+    <p><b>If you are unable to complete the survey, and would like to finish it later, at any time you can go to the bottom of this survey form and hit the "Save and Complete It Later" button.</b></p>
+
+    <br />
+    <h2>BEGIN THE ASSESSMENT</h2>
+
+    @using (Html.BeginForm(
+        "Index", "QuestionnaireReport", FormMethod.Post,
+        new { @id = "questionnaireForm", @name = "questionnaireForm", @class = "form-horizontal row-fluid form-sole" }
+    )) {
+    <ol class="categories">
+        @{
+            int quesionNumber = 1;
+        }
+        @foreach (var category in Model.Questionnaire.Categories)
+        {
+        <li class="category">
+            <div class="legend">@Html.Raw(category.Title)</div>
+            <div class="category-content">
+                <!-- <p class="category-annotation">@Html.Raw(category.Annotation)</p> -->
+                <ol class="questions">
+                    @foreach (var question in category.Questions)
+                    {
+                    <li class="question" value="@quesionNumber">
+                        <p class="question-descr">
+                            @Html.Raw(question.Title)
+                            <a class="reset-link" >reset&nbsp;selection</a>
+                        </p>
+                        @foreach (var answer in question.Answers)
+                        {
+                        <label class="radio">
+                            @Html.RadioButton(question.Id.ToString(), answer.Id, answer.IsSelected)
+                            @Html.Raw(answer.Title)
+                        </label>
+                        }
+                        <p class="question-annotation">@Html.Raw(@question.PostAnnotation)</p>
+                        @{
+                            ++quesionNumber;
+                        }
+                    </li>
+                    }
+                </ol>
+            </div>
+        </li>
+        }
+    </ol>
+    <hr/>
+    <div class="row-fluid">
+        <div class="offset2 span8">
+            <div class="control-group">
+                @Html.LabelFor(m => m.DemographicData.SizeOfFacility, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.EnumDropDownListFor(m => m.DemographicData.SizeOfFacility, new { @class = "span12" })
+                    @Html.ValidationMessageFor(m => m.DemographicData.SizeOfFacility, null, new { @class = "help-block hide" })
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.DemographicData.IndustrialClassification, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.EnumDropDownListFor(m => m.DemographicData.IndustrialClassification, new { @class = "span12" })
+                    @Html.ValidationMessageFor(m => m.DemographicData.IndustrialClassification, null, new { @class = "help-block hide" })
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.DemographicData.AnotherProductClassification, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.EnumDropDownListFor(m => m.DemographicData.AnotherProductClassification, new { @class = "span12" })
+                    @Html.ValidationMessageFor(m => m.DemographicData.AnotherProductClassification, null, new { @class = "help-block hide" })
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.DemographicData.AdditionalProductClassification, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.EnumDropDownListFor(m => m.DemographicData.AdditionalProductClassification, new { @class = "span12" })
+                    @Html.ValidationMessageFor(m => m.DemographicData.AdditionalProductClassification, null, new { @class = "help-block hide" })
+                </div>
+            </div>
+        </div>
+        <p class="quest-form-footer-descr">
+            After completing the above questions, click on the “Get Self-Assessment Report” below. Your facility’s self-assessment
+            report will then be immediately summarized and displayed, and you will be sent a copy of both your answers and the report
+            by email. You may re-take this self-assessment questionnaire as many times as you want, and the resulting report will
+            be updated accordingly.
+        </p>
+        <hr />
+        @Html.ValidationSummary(false, "Cannot process:", new { @class = "well well-small error" })
+        <div class="pagination-centered quest-form-footer-btns">
+            @Html.SubmitButton("Save And Complete It Later", new { @id = "completeLaterBtn", @class = "btn" })
+            @Html.SubmitButton("Get Self-Assessment Report Now", new { @id = "getReportBtn", @class = "btn btn-success" })
+        </div>
+    </div>
+    <input type="hidden" name="completeLaterOnSubmit" value="false" data-val="true" data-val-anychecked="Please select at least one answer." />
+    }
+</div></div>
+
+<p class="copyright">
+    Powered by <a href="http://www.seneca.com" target="_blank">Seneca Corporation</a>, a provider of business process solutions for the food industry.<br />
+    &copy; @DateTime.Now.Year Seneca Corporation
+</p>

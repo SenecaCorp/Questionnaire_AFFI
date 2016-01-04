@@ -1,0 +1,67 @@
+﻿@model Questionnaire.Entities.Vendor
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2>Create new vendor</h2>
+
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Vendor</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LinkToWebsite)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LinkToWebsite)
+                @Html.ValidationMessageFor(model => model.LinkToWebsite)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LinkDisplayText)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LinkDisplayText)
+                @Html.ValidationMessageFor(model => model.LinkDisplayText)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Description)
+            </div>
+            <div class="editor-field" >
+                @Html.TextAreaFor(model => model.Description, new { style = "width:300px; height:120px;" })
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>

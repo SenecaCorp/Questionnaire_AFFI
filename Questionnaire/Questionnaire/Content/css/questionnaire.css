@@ -1,0 +1,285 @@
+body {
+	background: #B3B4B5 url(../img/screen/bg.jpg);
+}
+
+.page {
+	padding-left: 35px;
+	padding-right: 40px;
+	padding-top: 20px;
+	padding-bottom: 25px;
+	background-color: white;
+	box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+}
+
+.validation-summary-valid {
+	display: none;
+}
+
+.page .form-sole {
+	margin: 0;
+}
+
+.navbar-user {
+	float: left;
+	padding-right: 6px;
+}
+
+.navbar-logout {
+	float: right;
+	color: #666666;
+	padding: 4px 10px;
+}
+
+b, strong {
+	font-weight: bold;
+	color: #333333;
+}
+
+h2, h3 
+{
+    color:#2b3856;
+}
+
+.question ul, .question ol {
+    margin-bottom: 15px;
+}
+
+.question ul ol, .question ol ul, .question ul ul, .question ol ol {
+	margin-bottom: 10px;
+	margin-top: 3px;
+	list-style-type: circle;
+}
+
+ol.categories {
+	list-style: upper-roman;
+	font-size: 21px;
+}
+
+li.category {
+	padding-top: 10px;
+}
+
+ul { 
+    list-style: none;
+}
+ 
+ul li {
+    background: transparent url(../img/bullet.gif) no-repeat scroll 0px;
+    /*line-height: 140%;*/
+    padding: 0 0 0 20px;
+}
+
+.legend {
+	display:block;
+	width:100%;
+	padding:0;
+	margin-bottom:20px;
+	font-size:21px;
+	line-height:40px;
+	color:#333333;
+	border:0;
+	border-bottom:1px solid #e5e5e5;
+	color:#2b3856;
+}
+
+li.category .category-content {
+	font-size: 14px;
+}
+
+li.question {
+	margin-top: 15px;
+}
+
+.question-annotation {
+	margin-top: 15px;
+	font-weight: bold;
+	color: #A30;
+}
+
+a.reset-link {
+	cursor: pointer;
+}
+
+.quest-form-footer-descr {
+	clear: both;
+}
+
+.quest-form-footer-btns {
+	margin-top: 23px;
+}
+
+.quest-form-footer-btns .btn {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+/* Report page: layout */
+
+.category-section {
+	margin-bottom: 15px;
+}
+
+.left-column h5 {
+	margin: 0 0 0 3px;
+}
+
+p.copyright {
+	text-align: center;
+	padding-top: 10px;
+	font-size: 12px;
+	color: #555555;
+}
+
+.report img {
+	display: block;
+	margin-bottom: 10px;
+}
+
+/* Report page: header */
+
+.report-header {
+	margin-top: 15px;
+	margin-left: 25px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.report-header h1 {
+	float: left;
+	margin-top: 0;
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: normal;
+}
+
+.report-header small {
+	font-size: 14px;
+}
+
+.report-header address {
+	text-align: right;
+	margin-left: 25px;
+}
+
+.report-header img {
+	float: left;
+	margin-right: 20px;
+}
+
+.section-header {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 20px;
+	font-weight: normal;
+	font-size: 21px;
+	line-height: 40px;
+	color: #333;
+	border: 0;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+/* Report page: vendor list for category */
+
+.category-overall {
+	margin-top: 20px;
+	margin-left: 25px
+}
+
+.vendor-list-box {
+	background: #FBFBFB;
+	border: 1px solid #DDDDDD;
+	border-radius: 5px;
+	padding: 5px 5px 1px 10px;
+}
+
+.vendor-list {
+	margin-top: 0;
+}
+
+.vendor-list-box .vendor-list-intro {
+	margin-bottom: 5px;
+}
+
+.vendor-list .vendor {
+	margin-bottom: 5px;
+}
+
+.vendor-list .vendor p {
+	margin-top: 0;
+	margin-bottom: 0;
+	min-height: 24px;
+	line-height: 24px;
+}
+
+.vendor-list .vendor p * {
+	vertical-align: middle;
+}
+
+.vendor-list .vendor input.btn {
+	line-height: 24px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+/* Report page: overall vendor list */
+
+.overall-vendor-list {
+	margin-top: 20px;
+}
+
+.overall-vendor {
+  background: #FBFBFB;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  position: relative;
+  padding: 5px 100px 5px 8px;
+  margin-bottom: 8px;
+}
+
+.overall-vendor .btn.contactme {
+  width: 90px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.overall-vendor .vendor-description {
+	clear: both;
+	font-size: 12px;
+	margin: 0;
+    margin-right: -95px;
+}
+
+/* Report page: footnote */
+
+.footnote {
+    border-top: 1px solid #EEEEEE;
+    margin-top: 35px;
+    margin-bottom: 0;
+    padding-top: 15px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Report page: Contact Me popover */
+
+.contactme-popover .link-cancel {
+	color: #666666;
+}
+
+.contactme-popover .btn-primary {
+	margin-left: 5px;
+}
+
+.contactme-popover hr {
+  margin-top: 7px;
+  margin-bottom: 8px;
+}
+
+/*.category-content {
+	border-top: 1px solid #E5E5E5;
+	padding-top: 20px;
+	margin-top: 10px;
+}*/

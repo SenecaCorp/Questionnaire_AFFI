@@ -1,0 +1,14 @@
+﻿@model QuestionnairePrototype.Models.Questionnaire.AFFIHeaderModel
+
+<div class="report-header clearfix" style="border-bottom:none;"> 
+    <img src="/Content/img/affi_logo.jpg"/>
+    <h1>
+        AFFI FSMA Food Safety Readiness Self Assessment <br /> Preventive Controls – Assessment  Report for @Model.FacilityName<br/>
+        <small>@Model.Name</small><br/>
+        <small><a href="mailto:@Model.Email">@Model.Email</a></small>
+        @if (Model.WasEverSubmitted)
+        {
+            <br/><small>Last submitted: @Model.lastSubmitted.ToShortDateString()</small>
+        }
+    </h1>
+    </div>

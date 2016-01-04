@@ -1,0 +1,27 @@
+﻿@using Dashboard.Infrastructure
+@model Dashboard.Models.PurchasedItemModel
+@using (Html.BeginForm("Activate", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true)
+    <tr>
+        <td style="text-align: center">
+            @Html.TextBoxFor(m => m.Facility, new { @class = "span3" })
+            @Html.ValidationMessageFor(m => m.Facility, "Facility Name is required", new { @class = "help-block hide" })
+        </td>
+        <td style="text-align: center">
+            @Html.TextBoxFor(m => m.Name, new { @class = "span3" })
+            @Html.ValidationMessageFor(m => m.Name, "Name is required", new { @class = "help-block hide" })
+        </td>
+        <td style="text-align: center">
+            @Html.TextBoxFor(m => m.Email, new { @class = "span3" })
+            @Html.ValidationMessageFor(m => m.Email, "Email is required", new { @class = "help-block hide" })
+        </td>
+        <td style="text-align: center">
+            @Html.DisplayTextFor(m => m.DateOfPurchase)
+            @Html.HiddenFor(m => m.DateOfPurchase)
+        </td>
+        <td style="text-align: center">
+            @Html.SubmitButton("Activate", new { @class = "btn btn-success pull-right" })
+        </td>
+    </tr>
+}

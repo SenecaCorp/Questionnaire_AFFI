@@ -1,0 +1,46 @@
+﻿@using Dashboard.Infrastructure
+@model Dashboard.Models.SignInModel
+@{
+    ViewBag.Title = "Sign In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+<div class="row">
+<div class="offset3 span6">
+@using (Html.BeginForm("Index", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <fieldset>
+        <legend>Please enter your AFFI userid and password</legend>
+
+        @Html.ValidationSummary(true, "Cannot sign in:", new { @class = "well well-small error" })
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Email, new { @class = "span3" })
+                @Html.ValidationMessageFor(m => m.Email, "Email is required", new { @class = "help-block hide" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            <div class="controls">
+                @Html.PasswordFor(m => m.Password, new { @class = "span3" })
+                @Html.ValidationMessageFor(m => m.Password, "Password is required", new { @class = "help-block hide" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <div class="span3 offset0">
+                    @Html.SubmitButton("Sign In", new { @class = "btn btn-success pull-right" })
+                </div>
+            </div>
+        </div>
+
+        <legend></legend>
+    </fieldset>
+}
+</div>
+</div>
+</div>

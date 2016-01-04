@@ -1,0 +1,47 @@
+﻿@using QuestionnairePrototype.Infrastructure
+@model Questionnaire.Entities.RiskRange
+
+@{
+    ViewBag.Title = "EditRisk";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="span10">
+            @using (Html.BeginForm()) {
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    <legend>Risk "@Html.getRiskTypeNameById(Model.RiskTypeId)" for Category #@Model.CategoryId</legend>
+
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.RiskTypeId)
+                    @Html.HiddenFor(model => model.CategoryId)
+
+                    <h5>Risk Comment</h5>
+                    <div class="editor-field">
+                        @Html.TextAreaFor(model => model.Comment, new { @class = "span6", rows = 7 })
+                        @Html.ValidationMessageFor(model => model.Comment)
+                    </div>
+
+                    <h5>Risk max weight</h5>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.MaxValue)
+                        @Html.ValidationMessageFor(model => model.MaxValue)
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="span3">
+                            <input type="submit" value="Save" class="btn btn-success"/>
+                            <button class="btn" onclick="@Url.Action("Back to List", "Edit", new { id = Model.CategoryId })">Back to list</button>
+                        </div>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>

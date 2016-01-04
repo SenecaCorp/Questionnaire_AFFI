@@ -1,0 +1,34 @@
+@media print {
+
+.navbar {
+    display: none;
+}
+
+.page {
+    box-shadow: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+a.reset-link {
+    display: none;
+}
+
+.btn {
+    color: #444444;
+    border-color: #444444;
+    text-shadow: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.btn-success {
+    text-shadow: none;
+}
+
+
+}

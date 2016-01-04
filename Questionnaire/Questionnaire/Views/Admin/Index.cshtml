@@ -1,0 +1,85 @@
+﻿@model QuestionnairePrototype.Models.Admin.UsersList
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="span12">
+            @Html.ActionLink("Add new user", "AddUser", new {  }, new { @class = "button btn btn-primary" })
+
+
+             @* If User is 'OverallAdmin', then show Export to Excel Button*@            
+             @if (@ViewBag.CurrentUser.OverallAdmin)
+             {
+                @Html.ActionLink("Export to Excel", "ExportStatistics", new { }, new { @class = "button btn btn-success" })
+             }
+            
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Facility
+                    </th>
+                    <th>
+                        Date Created
+                    </th>
+                    <th>
+                        Expire Date
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+            @foreach(var userEntry in Model.Users)
+            {
+            <tr>
+                <td>@userEntry.User.Name</td>
+                <td>@userEntry.User.Email</td>
+                <td>@userEntry.User.FacilityName</td>
+                <td>@userEntry.User.UserRegistrationDate.ToShortDateString()</td>
+                <td>@userEntry.User.UserExpirationDate.ToShortDateString()</td>
+                <td>@Html.ActionLink("Edit", "EditUser", new { id = userEntry.User.Id }, new { @class = "button btn btn-warning btn-small" })</td>
+                <td>
+                    @if (@ViewBag.CurrentUser.OverallAdmin)
+                    {
+                        if (@userEntry.WasCompleteQuestionnaire)
+                        {
+                                @Html.ActionLink("Details", "Details", new { userId = userEntry.User.Id }, new { @class = "button btn btn-info btn-small" })
+                        }
+                    }
+                </td>
+                <td>
+                    @if (userEntry.User.UserIsDeleted)
+                    {
+                        @Html.ActionLink("Enable", "MarkAsDelete", new { revertUserId = userEntry.User.Id }, new { @class = "button btn btn-success btn-small" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Disable", "MarkAsDelete", new { revertUserId = userEntry.User.Id }, new { @class = "button btn btn-danger btn-small" })
+                    }
+                </td>
+                <td>
+                 @if (@ViewBag.CurrentUser.OverallAdmin)
+                 {
+                     if (userEntry.User.OverallAdmin)
+                     {
+                         @Html.Label("System Admin")
+                     }
+                 }
+                </td>
+            </tr>
+            }
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>

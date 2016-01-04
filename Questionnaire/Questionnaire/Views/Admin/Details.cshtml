@@ -1,0 +1,92 @@
+﻿@model QuestionnairePrototype.Models.Admin.UserDetails
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="span10 offset1">
+            <legend>Details for @Model.UserPurchase.Name</legend>
+
+            <fieldset>
+                <h5>Name</h5>
+                <div class="display-field">
+                    @Html.DisplayFor(m => m.UserPurchase.Name)
+                </div>
+                
+                <h5>Email</h5>
+                <div class="display-field">
+                    @Html.DisplayFor(m => m.UserPurchase.Email)
+                </div>
+                
+                <h5>Facility</h5>
+                <div class="display-field">
+                    @Html.DisplayFor(m => m.UserPurchase.FacilityName)
+                </div>
+                
+                <h5>Registration Date</h5>
+                <div class="display-field">
+                    @Html.DisplayFor(m => m.UserPurchase.UserRegistrationDate)
+                </div>
+                
+                <h5>Expiration Date</h5>
+                <div class="display-field">
+                    @Html.DisplayFor(m => m.UserPurchase.UserExpirationDate)
+                </div>
+
+            @*TODO Try to make this part as inserted view of another form*@
+            <div class="overall">
+                <h3>Overall Risk Profile</h3>
+                <table border="0" width="90%" cellspacing="30px">
+                    <tr valign="top">
+                        <td width="150px">
+                            <span class="@Model.QuestionnaireReport.Overall.RiskTypeName">
+                                @Model.QuestionnaireReport.Overall.RiskTypeName
+                            </span>
+                        </td>
+                        <td width="100px">
+                            @String.Format("{0:0.####}", @Model.QuestionnaireReport.Overall.OverallScore)
+                        </td>
+                        <td>
+                            @Html.Raw(@Model.QuestionnaireReport.Overall.RecomendationText)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br/>
+            @foreach (var category in Model.QuestionnaireReport.Categories)
+            {
+                <div class="categories">
+                    <h3>@category.CategoryTitle</h3>
+                    <table border="0" width="90%" cellspacing="30px">
+                        <tr valign="top">
+                            <td width="150px">
+                                <span class="@category.RiskTypeName">
+                                    @category.RiskTypeName
+                                </span>
+                            </td>
+                            <td width="100px">
+                                @category.QuestionsValueSum / @category.QuestionsMaxValueSum = @String.Format("{0:0.####}", @category.CategoryScore) 
+                            </td>
+                            <td>
+                                @Html.Raw(@category.CategoryComment)
+                            </td>
+                        </tr>
+                        @foreach (var question in category.QuestionRecomendations)
+                        {               
+                            <tr valign="top">
+                                <td>@Html.Raw(@question.QuestionSummary)</td>
+                                <td>@question.answerIndex - @question.checkedValue / @question.maxValue</td>
+                                <td>@Html.Raw(@question.AnswerComment)</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            }
+            </fieldset>
+            <p>
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </div>
+</div>

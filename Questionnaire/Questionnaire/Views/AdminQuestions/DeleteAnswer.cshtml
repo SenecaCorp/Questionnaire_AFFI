@@ -1,0 +1,44 @@
+﻿@model Questionnaire.Entities.Answer
+
+@{
+    ViewBag.Title = "Delete Answer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="span10">
+        <legend>Are you sure you want to delete answer #@Model.Index</legend>
+        <fieldset>
+
+            <h5>Answer text</h5>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Title)
+            </div>
+
+            <h5>Comment</h5>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Comment)
+            </div>
+
+            <h5>Index</h5>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Index)
+            </div>
+
+            <h5>Answer weight</h5>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Value)
+            </div>
+        </fieldset>
+        <br />
+        @using (Html.BeginForm())
+        {
+            <p>
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a class="btn" href="../Edit/@Model.QuestionId">Back to list</a>
+            </p>
+        }
+</div>
+</div>
+</div>

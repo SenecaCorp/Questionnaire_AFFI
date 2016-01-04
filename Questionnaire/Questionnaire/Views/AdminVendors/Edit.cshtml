@@ -1,0 +1,74 @@
+﻿@model Questionnaire.Entities.Vendor
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="span10">
+        <h2>Edit</h2>
+
+        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+        @using (Html.BeginForm()) {
+            @Html.ValidationSummary(true)
+            <fieldset>
+        
+                <legend>Vendor</legend>
+
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LinkToWebsite)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.LinkToWebsite)
+                    @Html.ValidationMessageFor(model => model.LinkToWebsite)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LinkDisplayText)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.LinkDisplayText)
+                    @Html.ValidationMessageFor(model => model.LinkDisplayText)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Description)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Description)
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+                <div class="row-fluid">
+                    <div class="span3">
+                        <input type="submit" value="Save" class="btn btn-success"/>
+                        <button class="btn" onclick="@Url.Action("Back to List", "Index")">Back to list</button>
+                    </div>
+                </div>
+        
+            </fieldset>
+        }
+        </div>
+    </div>
+</div>

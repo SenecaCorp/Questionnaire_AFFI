@@ -1,0 +1,39 @@
+﻿@model IEnumerable<QuestionnairePrototype.Models.Vendors.ICategoryWithBindedVendors>
+@{
+    ViewBag.Title = "Vendors By Categories";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="span10">
+        @foreach (var category in Model)
+        {
+            <h4>@category.Title</h4>
+            foreach (var vendor in category.BindedVendors)
+            {
+                <table>
+                    <tr>
+                        <td>@vendor.Name</td>
+                        <td>@Html.ActionLink("Drop", "DropVendorByCategory", new { vendorId = vendor.Id, categoryId = category.Id })</td>
+                    </tr>
+                </table>
+            }
+                    <div class="btn-group">
+                <a class="btn dropdown-toggle @if(category.VendorsCanBeBinded.Count == 0){@Html.Raw("disabled")}" data-toggle="dropdown" href="#">
+                Add vendor
+                <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach (var vendor in category.VendorsCanBeBinded)
+                    {
+                        <li>@Html.ActionLink(vendor.Name, "BindVendorToCategory", new { vendorId = vendor.Id, categoryId = category.Id })</li>
+                    }
+                </ul>
+            </div>
+            <br/>
+
+        }
+        </div>
+    </div>
+</div>

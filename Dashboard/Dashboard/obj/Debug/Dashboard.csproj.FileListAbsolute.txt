@@ -1,0 +1,11 @@
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\bin\Dashboard.dll
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\bin\Dashboard.pdb
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\bin\EntityFramework.dll
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\bin\Questionnaire.Entities.dll
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\bin\Questionnaire.Mailing.dll
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\bin\Questionnaire.Entities.pdb
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\bin\Questionnaire.Mailing.pdb
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\bin\EntityFramework.xml
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\obj\Debug\ResolveAssemblyReference.cache
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\obj\Debug\Dashboard.dll
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Dashboard\Dashboard\obj\Debug\Dashboard.pdb

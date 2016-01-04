@@ -1,0 +1,214 @@
+﻿@using QuestionnairePrototype.Infrastructure
+@model QuestionnairePrototype.Models.Report.QuestionnaireReportForUser
+@{
+    ViewBag.Title = "FSMA Self-Assessment Report";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="container"><div class="page report">
+     
+    @Html.Partial("AFFIHeader", new QuestionnairePrototype.Models.Questionnaire.AFFIHeaderModel(@Model.UserPurchase.FacilityName, @Model.UserPurchase.Name, @Model.UserPurchase.Email, true, @DateTime.Now.Date))
+
+    <div class="legend pagination-centered">FSMA Self-Assessment – RESULTS:</div>
+    <p>These questions and the corresponding responses were designed to help you determine to what extent your facility’s food safety programs have been developed or implemented in alignment with elements in the statute as written and expected to be implemented. There is no one situation that fits every facility; <b> so, please consider that the answers represent general nonbinding guidance, it represents industry best practices and FDA stated expectations or general guidance that has been shared to date.</b></p>
+    <p>You may re-take this self-assessment questionnaire as many times as you want for the three month period starting when your company paid for the self-assessment, and the resulting report will be updated accordingly.</p>
+    <p>AFFI does not guarantee the accuracy, adequacy, completeness or availability of any information provided in this Self-Assessment and is not responsible for any errors or omissions or for any results obtained from the use of such information.  AFFI gives no express or implied warranties, including but not limited to, any warranties of merchantability or fitness for a particular purpose or use.  In no event shall AFFI be liable for any indirect, special or consequential damages in connection with any use of this Self-Assessment.</p>
+    <p>This Self-Assessment Guide is intended to serve as a reference document for companies developing hazard analysis and preventive controls programs in preparation for FDA's implementation of FSMA. Please note that the information presented is not intended to be all-inclusive but instead represents a basic set of information which is generally applicable to most companies in developing and implementing such programs. Completion of the Self-Assessment does not ensure compliance with applicable statutory and regulatory requirements. The Guide is not intended as nor does it constitute legal advice. In developing and implementing FSMA compliance programs, it is recommended that companies consult an attorney and utilize the Self-Assessment tool with consideration given to their specific products, activities, and infrastructure and customer expectations.</p>
+
+     <div class="legend"> </div>
+     <div class="legend">Overall Assessment - Degree of Readiness</div>
+
+    <div class="row-fluid category-content overall">
+        <div class="category-overall">
+            <div class="category-section clearfix">
+                <div class="span3 left-column">
+                    @Html.createLinkToRiskImgScreen(Model.Report.Overall.RiskTypeName)
+                </div>
+                <div class="span8">
+                    <p>@Model.Report.Overall.RecomendationText</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ol class="categories">
+        @foreach (var category in Model.Report.Categories)
+        {
+        <li class="category" value="@category.Index">
+            <div class="legend">@Html.Raw(category.CategoryTitle)</div>
+            <div class="row-fluid category-content">
+                <div class="category-section overall-rec clearfix">
+                    <div class="span3 left-column">
+                        @if (category.DisplayImage)
+                        {
+                            @Html.createLinkToRiskImgScreen(category.RiskTypeName)
+                        }
+                    </div>
+                    <div class="span8">
+                        <p>@Html.Raw(category.CategoryComment)</p>
+                    </div>
+                </div>
+                @foreach (var question in category.QuestionRecomendations)
+                {
+                <div class="category-section clearfix">
+                    <div class="span3 left-column">
+                        <h5>@Html.Raw(@question.QuestionSummary)</h5>
+                    </div>
+                    <div class="span8">
+                        <p>@Html.Raw(@question.AnswerComment)</p>
+                    </div>
+                </div>
+                }
+                @if (category.vendorList.Count > 0)
+                {
+                    <div class="vendor-list-box">
+                        <p class="vendor-list-intro">AFFI Suggested Service Providers who provide services related to this Category area listed below. More information about each of the companies is provided at the end of this Report.</p>
+                        @Html.Partial("VendorsListForCategory", new Tuple<int, List<Questionnaire.Entities.Vendor>>(category.categoryId, category.vendorList))
+                    </div>
+                }
+            </div>
+        </li>
+        }
+    </ol>
+    <div class="legend"> </div>
+    @if (Model.Report.OverallVendors.Count > 0)
+    {
+        <h2 class="section-header">AFFI Suggested Service Providers</h2>
+        <p>
+            AFFI Suggested Service Providers who provide services related to FSMA are listed below. If you want more information
+            about their services, click on “Send Me Information” and your name and email address (but NO information on your
+            responses to this questionnaire) will be provided to the company.
+        </p>
+        @Html.Partial("OverallVendorList", Model.Report.OverallVendors)
+    }
+    <p class="footnote">
+        AFFI does not guarantee the accuracy, adequacy, completeness or availability of any information provided in this Self-Assessment and is not responsible for any errors or omissions or for any results obtained from the use of such information.  AFFI gives no express or implied warranties, including but not limited to, any warranties of merchantability or fitness for a particular purpose or use.  In no event shall AFFI be liable for any indirect, special or consequential damages in connection with any use of this Self-Assessment.<br /><br />
+        This Self-Assessment Guide is intended to serve as a reference document for companies developing hazard analysis and preventive controls programs in preparation for FDA's implementation of FSMA. Please note that the information presented is not intended to be all-inclusive but instead represents a basic set of information which is generally applicable to most companies in developing and implementing such programs. Completion of the Self-Assessment does not ensure compliance with applicable statutory and regulatory requirements. The Guide is not intended as nor does it constitute legal advice. In developing and implementing FSMA compliance programs, it is recommended that companies consult an attorney and utilize the Self-Assessment tool with consideration given to their specific products, activities, and infrastructure and customer expectations.
+    </p>
+</div></div>
+
+<p class="copyright">
+    Powered by <a href="http://www.seneca.com" target="_blank">Seneca Corporation</a>, a provider of business process solutions for the food industry.<br />
+    &copy;  @DateTime.Now.Year Seneca Corporation
+</p>
+
+<div id="popoverTemplate" style="display: none">
+    <div class="clearfix contactme-popover">
+        <p class="message">
+            By clicking the OK button <strong>$title$</strong> will be informed that you are 
+            interested and they will send you information via email.
+        </p>
+        <hr />
+        <div class="spin-cont" style="float: left; width: 20px; height: 30px;"></div>
+        <div class="pull-right">
+            <a href="javascript:void(0)" class="link-cancel">Cancel</a>
+            <a href="javascript:void(0)" class="btn btn-primary">OK</a>
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    (function ($) {
+        $('input.contactme').each(function (index, obj) {
+            var btn = $(obj);
+            var data = btn.data();
+            btn.click(function (e) {
+                if (!btn.is(window.activeContactMeBtn)) {
+                    hidePopover();
+                    window.activeContactMeBtn = btn;
+                    window.activeContactMeData = data;
+                }
+            });
+            btn.popover({
+                title: data.title,
+                content: getPopoverContent(data),
+                placement: 'left'
+            });
+        });
+
+        var template = $("#popoverTemplate").html();
+
+        function getPopoverContent(data) {
+            return function () {
+                return populateWithData(template, data);
+            }
+        }
+
+        function populateWithData(template, data) {
+            return template.replace(/\$(\w+)\$/g, function () {
+                return data[arguments[1]];
+            });
+        }
+
+        var spinner = new Spinner({
+            lines: 9, // The number of lines to draw
+            length: 3, // The length of each line
+            width: 2, // The line thickness
+            radius: 3, // The radius of the inner circle
+            corners: 1, // Corner roundness (0..1)
+            rotate: 0, // The rotation offset
+            color: '#000', // #rgb or #rrggbb
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            shadow: false, // Whether to render a shadow
+            hwaccel: false, // Whether to use hardware acceleration
+            className: 'spinner', // The CSS class to assign to the spinner
+            zIndex: 2e9, // The z-index (defaults to 2000000000)
+            top: 'auto', // Top position relative to parent in px
+            left: 'auto' // Left position relative to parent in px
+        });
+
+        $(document).on('click', 'div.contactme-popover a', function (e) {
+            var btn = $(this);
+            if (btn.hasClass('link-cancel')) {
+                hidePopover();
+            } else if (btn.hasClass('btn-primary')) {
+                var data = window.activeContactMeData;
+                var btn = window.activeContactMeBtn;
+
+                var spinnerCont = btn.data('popover').tip().find('.spin-cont').get(0);
+                spinner.spin(spinnerCont);
+
+                var targetUrl = '/VendorClicksCounter/ContactMe?vendorId=' + data.vendor + '&categoryId=' + data.category;
+
+                $.ajax({
+                    url: targetUrl,
+                    dataType: "text",
+                    type: "GET",
+                    success: function (data, textStatus) {
+                        hidePopover();
+                        //alert(data);
+                    }
+                });
+
+                event.preventDefault();
+            }
+        });
+
+        function popoverIsVisible() {
+            return (window.activeContactMeData != null);
+        }
+
+        $(document).on('click', 'div.contactme-popover', function (e) {
+            window.clickedOnPopover = true;
+        });
+
+        $(document).click(function (e) {;
+            var clickedElem = $(e.target);
+            var clickedContactMeButton = clickedElem.hasClass("contactme");
+            if (popoverIsVisible() && !clickedContactMeButton && !window.clickedOnPopover) {
+                hidePopover();
+            }
+            window.clickedOnPopover = false;
+        });
+
+        function hidePopover() {
+            if (popoverIsVisible()) {
+                spinner.stop();
+                window.activeContactMeBtn.data('popover').hide();
+                window.activeContactMeBtn = null;
+                window.activeContactMeData = null;
+            }
+        }
+    })(window.jQuery);
+</script>    

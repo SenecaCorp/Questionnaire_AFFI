@@ -1,0 +1,46 @@
+﻿@using QuestionnairePrototype.Infrastructure
+@model QuestionnairePrototype.Models.Membership.SignUpModel
+@{
+    ViewBag.Title = "Create new user";
+    Layout = "~/Views/Shared/_SignInSignUpLayout.cshtml";
+}
+<div class="container">
+<div class="row">
+<div class="offset3 span6">
+@using (Html.BeginForm("Index", "SignUp", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <fieldset>
+        <legend>Create new user</legend>
+
+        @Html.ValidationSummary(true, "Cannot create user:", new { @class = "well well-small error" })
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Email, new { @class = "span3" })
+                @Html.ValidationMessageFor(m => m.Email, "Email is required", new { @class = "help-block hide" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.FacilityName, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.FacilityName, new { @class = "span3" })
+                @Html.ValidationMessageFor(m => m.FacilityName, "Facility name is required", new { @class = "help-block hide" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <div class="span3 offset0">
+                    @Html.SubmitButton("Create", new { @class = "btn btn-success pull-right" })
+                </div>
+            </div>
+        </div>
+
+        <legend></legend>
+    </fieldset>
+}
+</div>
+</div>
+</div>

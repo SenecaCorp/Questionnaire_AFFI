@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Dashboard.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Dashboard_avectra_netForumXML_x0020_OnDemand" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nftpsandbox.avectra.com/xweb/netFORUMXMLONDemand.asmx</Value>
+    </Setting>
+    <Setting Name="Dashboard_avectra1_netForumXML_x0020_OnDemand" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://netforum.avectra.com/xweb/netforumxmlondemand.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

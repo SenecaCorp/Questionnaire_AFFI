@@ -1,0 +1,18 @@
+C:\Documents and Settings\Administrator\My Documents\GitHub\Questionnaire\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.dll
+C:\Documents and Settings\Administrator\My Documents\GitHub\Questionnaire\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.pdb
+C:\Documents and Settings\Administrator\My Documents\GitHub\Questionnaire\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\GitHub\Questionnaire\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.dll
+C:\Documents and Settings\Administrator\My Documents\GitHub\Questionnaire\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.pdb
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.dll
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.pdb
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\ResolveAssemblyReference.cache
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.dll
+\\10.31.0.51\d$\Inetpub\wwwroot\AFFI-FSMA\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.pdb
+Z:\Inetpub\wwwroot\AFFI-FSMA\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.dll
+Z:\Inetpub\wwwroot\AFFI-FSMA\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.pdb
+Z:\Inetpub\wwwroot\AFFI-FSMA\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.dll
+Z:\Inetpub\wwwroot\AFFI-FSMA\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.pdb
+D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.dll
+D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.pdb
+D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.dll
+D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.pdb

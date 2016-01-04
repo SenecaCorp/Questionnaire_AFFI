@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QuestionnairePrototype.Models.Admin.AdminCategory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="span5">
+            
+            <legend>Categories</legend>
+            @Html.ActionLink("Add Category", "Create", new {  }, new { @class = "button btn btn-primary" })
+            <br />
+
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                   @* <th style="width: 5%" />*@
+                    <th style="width: 82%">Title</th>
+                    <th style="width: 7%"><center>Weight</center></th>
+                    <th style="width: 6%" />
+                </tr>
+            </thead>
+            @foreach (var item in Model) {
+                <tr>
+                    @*<td>
+                        @item.Id.
+                    </td>*@
+                    <td>
+                        @Html.ActionLink(item.Text, "Edit", new { id=item.Id })
+                    </td>
+                    <td>
+                        <center>@item.Weight</center>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "button btn btn-warning btn-small" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "button btn btn-danger btn-small" })
+                    </td>
+                </tr>
+            }
+            </table>
+        </div>
+    </div>
+</div>

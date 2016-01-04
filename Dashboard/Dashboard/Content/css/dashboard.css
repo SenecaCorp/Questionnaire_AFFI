@@ -1,0 +1,77 @@
+.validation-summary-valid {
+	display: none;
+}
+
+.navbar-user {
+	float: left;
+	padding-right: 6px;
+}
+
+.navbar-logout {
+	float: right;
+	color: #666666;
+	padding: 4px 10px;
+}
+
+.container 
+{
+    padding-bottom: 10px;
+}
+
+b, strong {
+	font-weight: bold;
+	color: #333333;
+}
+
+.well.purchase-activated 
+{
+    margin-top: 15px;
+    padding: 8px 19px;
+    background-color: #E6F5DF;
+    border-color: #9FC57E;
+    color: #224623;
+}
+
+.well.purchase-activated a
+{
+    color: #224623;
+    text-decoration: underline;
+}
+
+.well.purchase-activated a:hover
+{
+    color: #224623;
+    text-decoration: none;
+}
+
+.well.purchase-activated h4
+{
+    margin-bottom: 15px;
+}
+
+.table td 
+{
+    vertical-align: middle;
+}
+
+.table thead tr 
+{
+    background-color: #F7F7F9;
+}
+
+.table-condensed th, .table-condensed td 
+{
+    padding: 7px 6px;
+}
+
+.table .btn 
+{
+    padding: 2px 10px;
+}
+
+p.copyright {
+	text-align: center;
+	padding-top: 10px;
+	font-size: 12px;
+	color: #555555;
+}

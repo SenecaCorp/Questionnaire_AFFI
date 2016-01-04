@@ -1,0 +1,14 @@
+﻿@model IList<Questionnaire.Entities.Vendor>
+<div class="vendor-list overall-vendor-list">
+@foreach (var vendor in Model)
+{
+    <div class="overall-vendor">
+        <div class="row-fluid">
+            <strong class="span4">@vendor.Name</strong>
+            @Html.ActionLink(vendor.LinkDisplayText, "Index", "VendorClicksCounter", new { vendorId = vendor.Id, categoryId = 0 }, new { @target = "_blank", @class = "span8" })
+        </div>
+        <p class="vendor-description">@vendor.Description</p>
+        <input data-vendor="@Html.Raw(vendor.Id.ToString())" data-category="0" data-title="@Html.Raw(vendor.Name)"  type="button" value="Contact me" class="contactme btn btn-small"/>
+    </div>
+}
+</div>

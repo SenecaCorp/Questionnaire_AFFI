@@ -1,0 +1,78 @@
+﻿@model IEnumerable<QuestionnairePrototype.Models.Vendors.VendorWithStatistic>
+
+@{
+    ViewBag.Title = "Vendors";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="span5">
+        @Html.ActionLink("Create New", "Create")
+    </div>
+    <div class="span11">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Link to Website
+            </th>
+            <th>
+                Link text for display
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Clicks count
+            </th>
+            <th>
+                Contact me count
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+        <tr @if(item.Vendor.Deleted){ @Html.Raw("style=\"color:gray;\"")}>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor.LinkToWebsite)
+            </td>
+                    <td>
+                @Html.DisplayFor(modelItem => item.Vendor.LinkDisplayText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClicksCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactMeCount)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Vendor.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Vendor.Id }) |
+                @if (!item.Vendor.Deleted)
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Vendor.Id }) 
+                }
+                else
+                {@Html.ActionLink("Restore", "Restore", new { id = item.Vendor.Id })} |
+                @Html.ActionLink("Statistics", "Statistics", new { id = item.Vendor.Id }) |
+                @Html.ActionLink("(.xls)", "ExportStatistics", new { id = item.Vendor.Id })
+            </td>
+        </tr>
+    }
+
+    </tbody>
+    </table>
+    </div>
+    </div>
+</div>

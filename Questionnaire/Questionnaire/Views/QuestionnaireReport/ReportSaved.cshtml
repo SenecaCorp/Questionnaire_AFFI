@@ -1,0 +1,11 @@
+﻿@model QuestionnairePrototype.Models.Questionnaire.AFFIHeaderModel
+
+@{
+    ViewBag.Title = "Successfully saved";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="container"><div class="page questionnaire">
+@Html.Partial("AFFIHeader", new QuestionnairePrototype.Models.Questionnaire.AFFIHeaderModel(@Model.FacilityName, @Model.Name, @Model.Email, @Model.WasEverSubmitted, @Model.lastSubmitted))
+<br />
+<h2>Your questionnaire successfully saved.</h2>
+</div></div>

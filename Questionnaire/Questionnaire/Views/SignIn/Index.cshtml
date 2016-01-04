@@ -1,0 +1,51 @@
+﻿@using QuestionnairePrototype.Infrastructure
+@model QuestionnairePrototype.Models.Membership.SignInModel
+@{
+    ViewBag.Title = "Sign In";
+    Layout = "~/Views/Shared/_SignInSignUpLayout.cshtml";
+}
+<div class="container">
+<div class="row">
+<div class="report-header clearfix pagination-centered" style="border-bottom:none;"> 
+    <img class="pull-left" src="/Content/img/affi_logo.jpg"/><h4 class="pull-left"> AFFI FSMA FOOD SAFETY READINESS SELF-ASSESSMENT</h4>
+</div>
+
+<div class="offset3 span6">
+
+@using (Html.BeginForm("Index", "SignIn", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <fieldset>
+        <legend>Please sign in</legend>
+
+        @Html.ValidationSummary(true, "Cannot sign in:", new { @class = "well well-small error" })
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Email, new { @class = "span3" })
+                @Html.ValidationMessageFor(m => m.Email, "Email is required", new { @class = "help-block hide" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            <div class="controls">
+                @Html.PasswordFor(m => m.Password, new { @class = "span3" })
+                @Html.ValidationMessageFor(m => m.Password, "Password is required", new { @class = "help-block hide" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <div class="span3 offset0">
+                    @Html.SubmitButton("Sign In", new { @class = "btn btn-success pull-right" })
+                </div>
+            </div>
+        </div>
+
+        <legend></legend>
+    </fieldset>
+}
+</div>
+</div>
+</div>
