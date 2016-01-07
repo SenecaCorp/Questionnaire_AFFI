@@ -16,9 +16,10 @@
 
             <thead>
                 <tr>
-                    @*<th style="width: 3%">@Html.ActionLink("Index", "Index", new { sortType = 0 })</th>*@
+                    <th style="width: 3%">@Html.ActionLink("Quest.#", "Index", new { sortType = 0 })</th>
                     <th style="width: 64%">Title</th>
-                    <th style="width: 5%">@Html.ActionLink("Quest.#", "Index", new { sortType = 1 })</th>
+                    @*<th style="width: 5%">@Html.ActionLink("Index", "Index", new { sortType = 1 })</th>*@
+                    <th style="width: 5%">Index</th>
                     <th style="width: 19%">@Html.ActionLink("Category", "Index", new { sortType = 2 })</th>
                     <th style="width: 5%"/>
                     <th style="width: 5%"/>
@@ -27,9 +28,9 @@
 
             @foreach (var item in Model) {
                 <tr>
-                   @* <td>
-                        @item.id.
-                    </td>*@
+                    <td>
+                        @item.QuestionnaireIndex.
+                    </td>
                     <td>
                        @item.shortText
                        @* @Html.ActionLink(item.shortText, "Edit", new { id=item.id })*@

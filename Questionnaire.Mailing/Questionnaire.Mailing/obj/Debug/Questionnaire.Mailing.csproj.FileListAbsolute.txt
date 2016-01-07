@@ -16,3 +16,7 @@ D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Mailing\Questionnaire.Mailing\bin\
 D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.pdb
 D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.dll
 D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Mailing\Questionnaire.Mailing\bin\Debug\Questionnaire.Mailing.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Mailing\Questionnaire.Mailing\obj\Debug\Questionnaire.Mailing.pdb

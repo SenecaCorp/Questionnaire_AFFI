@@ -42,3 +42,14 @@ D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire\Questionnaire\bin\EntityFramework.
 D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire\Questionnaire\obj\Debug\Questionnaire.csprojResolveAssemblyReference.cache
 D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire\Questionnaire\obj\Debug\QuestionnairePrototype.dll
 D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire\Questionnaire\obj\Debug\QuestionnairePrototype.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\QuestionnairePrototype.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\QuestionnairePrototype.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\EntityFramework.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\Questionnaire.Entities.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\Questionnaire.Mailing.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\Questionnaire.Entities.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\Questionnaire.Mailing.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\EntityFramework.xml
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\obj\Debug\Questionnaire.csprojResolveAssemblyReference.cache
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\obj\Debug\QuestionnairePrototype.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\obj\Debug\QuestionnairePrototype.pdb

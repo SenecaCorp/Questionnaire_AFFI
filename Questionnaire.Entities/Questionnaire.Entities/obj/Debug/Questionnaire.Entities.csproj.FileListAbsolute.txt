@@ -29,3 +29,11 @@ D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Entities\Questionnaire.Entities\bi
 D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Entities\Questionnaire.Entities\bin\Debug\EntityFramework.xml
 D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Entities\Questionnaire.Entities\obj\Debug\Questionnaire.Entities.dll
 D:\Inetpub\wwwroot\AFFI_Testing\Questionnaire.Entities\Questionnaire.Entities\obj\Debug\Questionnaire.Entities.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\bin\Debug\Questionnaire.Entities.dll.config
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\bin\Debug\Questionnaire.Entities.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\bin\Debug\Questionnaire.Entities.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\bin\Debug\EntityFramework.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\bin\Debug\EntityFramework.xml
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\obj\Debug\Questionnaire.Entities.csprojResolveAssemblyReference.cache
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\obj\Debug\Questionnaire.Entities.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\obj\Debug\Questionnaire.Entities.pdb

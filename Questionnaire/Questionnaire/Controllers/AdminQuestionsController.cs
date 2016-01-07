@@ -37,9 +37,9 @@ namespace QuestionnairePrototype.Controllers
             if(sortType == null ||sortType == 2)
                 allQuestionsList = allQuestionsList.OrderBy(r => r.CategoryName).ThenBy(n => n.QuestionnaireIndex).ToList();
             else if(sortType == 0)
-                allQuestionsList = allQuestionsList.OrderBy(r => r.id).ToList();
-            else if (sortType == 1)
                 allQuestionsList = allQuestionsList.OrderBy(r => r.QuestionnaireIndex).ToList();
+            else if (sortType == 1)
+                allQuestionsList = allQuestionsList.OrderBy(r => r.Index).ToList();
             else
                 allQuestionsList = allQuestionsList.OrderBy(r => r.CategoryName).ToList();
             
