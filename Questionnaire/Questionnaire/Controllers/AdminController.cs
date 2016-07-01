@@ -60,7 +60,10 @@ namespace QuestionnairePrototype.Controllers
         public ActionResult AddUser()
         {
             UserPurchase userPurchase = new UserPurchase();
-            userPurchase.UserExpirationDate = DateTime.Now;
+            DateTime x = DateTime.Now;
+            DateTime y = x.AddMonths(6).Date;
+
+            userPurchase.UserExpirationDate = y;
             //userPurchase.ActivatorsEmail = User.Identity.Name;
             return View(userPurchase);
         }

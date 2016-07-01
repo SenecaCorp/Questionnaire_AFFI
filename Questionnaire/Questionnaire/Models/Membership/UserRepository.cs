@@ -47,7 +47,7 @@ namespace QuestionnairePrototype.Models.Membership
             _context.SaveChanges();
         }
 
-        private string GeneratePassword(string facilityName)
+        public static string GeneratePassword(string facilityName)
         {
             return facilityName.Substring(0, 3) + GenerateSequenceOfChars(5);
         }
@@ -121,7 +121,7 @@ namespace QuestionnairePrototype.Models.Membership
             return true;
         }
 
-        private static string GenerateSequenceOfChars(int size)
+        public static string GenerateSequenceOfChars(int size)
         {
             var rng = new Random();
             const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";

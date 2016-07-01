@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Questionnaire.Entities", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Questionnaire.Mailing", "..\Questionnaire.Mailing\Questionnaire.Mailing\Questionnaire.Mailing.csproj", "{9D258341-FF92-433E-816E-F6B252348F96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Questionnaire.Webservices", "..\Questionnaire.Webservices\Questionnaire.Webservices.csproj", "{D9FB9DAB-2185-4FE5-B181-D808DC92A65A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{9D258341-FF92-433E-816E-F6B252348F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D258341-FF92-433E-816E-F6B252348F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D258341-FF92-433E-816E-F6B252348F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9FB9DAB-2185-4FE5-B181-D808DC92A65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9FB9DAB-2185-4FE5-B181-D808DC92A65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9FB9DAB-2185-4FE5-B181-D808DC92A65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9FB9DAB-2185-4FE5-B181-D808DC92A65A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
