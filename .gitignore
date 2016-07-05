@@ -1,3 +1,16 @@
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.pdb
+*.cache
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
