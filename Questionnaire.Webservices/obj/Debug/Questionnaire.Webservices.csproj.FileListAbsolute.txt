@@ -1,0 +1,13 @@
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\Questionnaire.Webservices.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\Questionnaire.Webservices.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\obj\Debug\Questionnaire.Webservices.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\obj\Debug\Questionnaire.Webservices.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\obj\Debug\Questionnaire.Webservices.csprojResolveAssemblyReference.cache
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\QuestionnairePrototype.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\EntityFramework.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\Questionnaire.Entities.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\Questionnaire.Mailing.dll
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\QuestionnairePrototype.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\EntityFramework.xml
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\Questionnaire.Entities.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Webservices\bin\Questionnaire.Mailing.pdb
