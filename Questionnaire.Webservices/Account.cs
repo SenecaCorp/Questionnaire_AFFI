@@ -41,6 +41,12 @@ namespace Questionnaire.Webservices
             //Set primary email address (which is used for the login)
             EmailForUserId = email;
 
+            //If secondaryemail is blank, set to same as primary email
+            if (String.IsNullOrEmpty(emailSecondary))
+            {
+                emailSecondary = email;
+            }
+
             Facility = facility;
             
             string sql = @"Insert Into UserPurchases (Email, ActivatorsEmail, Password, FacilityName, PasswordSalt, Name, DateOfPurchase, UserRegistrationDate, UserExpirationDate, IsAdmin )

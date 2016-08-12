@@ -17,6 +17,7 @@ namespace Questionnaire.Webservices
             MailContent mail = new MailContent();
             mail.MailingAdress = email;
             mail.MailFrom = getFromAddress();
+            mail.ReplyToAddress = getReplyToAddress();
             mail.Subject = getEmailSubject();
             mail.HtmlText = getEmailBodyForUser();
             mailService.sendMail(mail, true);
@@ -30,6 +31,7 @@ namespace Questionnaire.Webservices
             MailContent mail = new MailContent();
             mail.MailingAdress = getAFFIToAddress();
             mail.MailFrom = getFromAddress();
+            mail.ReplyToAddress = getReplyToAddress();
             mail.Subject = getEmailSubject();
             mail.HtmlText = getEmaiBodyforAffi();
             mailService.sendMail(mail, true);
@@ -67,9 +69,19 @@ namespace Questionnaire.Webservices
             return System.Configuration.ConfigurationManager.AppSettings["fromEmailAddress"];
         }
 
+        private static string getReplyToAddress()
+        {
+            return System.Configuration.ConfigurationManager.AppSettings["replyToEmailAddress"];
+        }
+
         private static string getAFFIToAddress()
         {
             return System.Configuration.ConfigurationManager.AppSettings["AFFIToAddress"];
+        }
+
+        private static string getURL()
+        {
+            return System.Configuration.ConfigurationManager.AppSettings["WebsiteURL"];
         }
        
 
@@ -78,7 +90,7 @@ namespace Questionnaire.Webservices
             string body = @"Dear " + Account.Name + @",
             <br><br>
  
-            Your new account has been created and registered for the AFFI FSMA Self-Assessment Readiness Tool for Facility " + Account.Facility + @". Please go to <a href='http://affi-fsma.seneca.com'>http://affi-fsma.seneca.com</a>
+            Your new account has been created and registered for the AFFI FSMA Self-Assessment Readiness Tool for Facility " + Account.Facility + @". Please go to <a href='" + getURL() + @"'>" + getURL() + @"</a>
             to complete the Readiness Tool. Your login credenetials are:
             <br><br>
             Email: " + Account.EmailForUserId + @"

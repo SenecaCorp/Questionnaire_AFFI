@@ -13,5 +13,6 @@ namespace Questionnaire.Mailing.Infrastructure
         public string PlainText;
         public string HtmlText;
         public string AttachmentPass;
+        public string ReplyToAddress;
     }
 }

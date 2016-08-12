@@ -36,4 +36,3 @@ D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnair
 D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\bin\Debug\EntityFramework.xml
 D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\obj\Debug\Questionnaire.Entities.dll
 D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\obj\Debug\Questionnaire.Entities.pdb
-D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire.Entities\Questionnaire.Entities\obj\Debug\Questionnaire.Entities.csprojResolveAssemblyReference.cache

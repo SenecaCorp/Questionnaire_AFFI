@@ -45,6 +45,12 @@ namespace Questionnaire.Mailing.Infrastructure
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(mailContent.MailFrom);
 
+            if (!String.IsNullOrEmpty(mailContent.ReplyToAddress))
+            {
+                mail.ReplyToList.Add(mailContent.ReplyToAddress);
+            }
+           
+
             mail.To.Add(mailContent.MailingAdress);
 
             mail.Subject = mailContent.Subject;
