@@ -53,3 +53,4 @@ D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\Ent
 D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\obj\Debug\Questionnaire.csprojResolveAssemblyReference.cache
 D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\obj\Debug\QuestionnairePrototype.dll
 D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\obj\Debug\QuestionnairePrototype.pdb
+D:\Inetpub\wwwroot\GitHub\Questionnaire_AFFI\Questionnaire\Questionnaire\bin\QuestionnairePrototype.dll.config

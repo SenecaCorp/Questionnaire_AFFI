@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Questionnaire", "Questionnaire\Questionnaire.csproj", "{A21359F4-15CB-4BD7-B898-7BDFA2598EF9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{64E3D715-7613-4D18-893A-C0C5F57B60C5} = {64E3D715-7613-4D18-893A-C0C5F57B60C5}
