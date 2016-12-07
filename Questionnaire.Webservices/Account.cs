@@ -11,7 +11,8 @@ namespace Questionnaire.Webservices
     {
 
         // datasource Connection
-        private static string DBConn = System.Configuration.ConfigurationManager.ConnectionStrings["QuestionnaireContext"].ToString();
+        private static string DBConnAFFIEnglish = System.Configuration.ConfigurationManager.ConnectionStrings["QuestionnaireEnglish"].ToString();
+        private static string DBConnAFFISpanish = System.Configuration.ConfigurationManager.ConnectionStrings["QuestionnaireSpanish"].ToString();
 
         internal static string Name { get; set; }
         internal static string EmailForUserId { get; set; }
@@ -32,7 +33,7 @@ namespace Questionnaire.Webservices
         }
 
 
-        internal static bool createAccount(string name, string email, string facility, string emailSecondary, string encryptedPassword)
+        internal static bool createAccount(string name, string email, string facility, string emailSecondary, string encryptedPassword,  Product.ProudctType productType)
         {
             bool successful = true;
 
@@ -56,8 +57,16 @@ namespace Questionnaire.Webservices
 
             try
             {
+                //AFFI ENGLISH SITE
+                string DBConnection = DBConnAFFIEnglish;
 
-                using (var sqlConnLocal = new SqlConnection(DBConn))
+                //AFFI SPANISH SITE
+                if (productType == Product.ProudctType.AffiSpanish)
+                {
+                    DBConnection = DBConnAFFISpanish;
+                }
+
+                using (var sqlConnLocal = new SqlConnection(DBConnection))
                 {
                     sqlConnLocal.Open();
                     using (var myCommand = new SqlCommand(sql, sqlConnLocal))
@@ -65,8 +74,10 @@ namespace Questionnaire.Webservices
                         myCommand.CommandTimeout = 200;
                         var result = myCommand.ExecuteScalar();
                     }
-
                 }
+                
+
+                
             }
             catch (Exception ex)
             {

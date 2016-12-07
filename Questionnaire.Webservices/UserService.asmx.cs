@@ -34,35 +34,44 @@ namespace Questionnaire.Webservices
         /// <param name="emailSecondary"></param>
         /// <returns></returns>
         [WebMethod]
-        public bool createUserAccount(string name, string email, string facility, string emailSecondary)
+        public bool createUserAccount(string name, string email, string facility, string emailSecondary, string product)
         {
             bool success;
             
             try
             {
+                //DEFAULT TO AFFI ENGLISH SITE
+                Product.ProudctType productType = Product.ProudctType.AffiEnglish;
+
+                //AFFI SPANISH SITE
+                if (product.ToLower() == "fsma-tool-es")
+                {
+                    productType = Product.ProudctType.AffiSpanish;
+                }
+                                
                 var encryptedPassword = Account.createPassword(facility);
 
-                success = Account.createAccount(name, email, facility, emailSecondary, encryptedPassword);
+                success = Account.createAccount(name, email, facility, emailSecondary, encryptedPassword, productType);
 
                 if (!success)
                     throw new Exception("Error Creating User Account for Email: " + email);
 
                 //Send email to User
-                Mail.sendEmailToUser(email);
+                Mail.sendEmailToUser(email, productType);
 
                 //If second email is different from primary, send email to second email
                 if (!String.IsNullOrEmpty(emailSecondary) && email != emailSecondary)
                 {
-                    Mail.sendEmailToUser(emailSecondary);
+                    Mail.sendEmailToUser(emailSecondary, productType);
                 }
 
                 //Send email to AffI
-                Mail.sendEmailToAffi();
+                Mail.sendEmailToAffi(productType);
 
             }
             catch (Exception ex)
             {
-                Mail.sendErrorEmail(ex.Message);
+                Mail.sendErrorEmail(ex.InnerException.ToString());
                 
                 success = false;
             }            

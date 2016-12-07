@@ -9,7 +9,7 @@ namespace Questionnaire.Webservices
     public class Mail
     {
 
-        internal static void sendEmailToUser(string email)
+        internal static void sendEmailToUser(string email, Product.ProudctType productType)
         {
             var emailServer = getSMTPServer();
             IMailService mailService = new SmptMailService(emailServer);
@@ -18,12 +18,24 @@ namespace Questionnaire.Webservices
             mail.MailingAdress = email;
             mail.MailFrom = getFromAddress();
             mail.ReplyToAddress = getReplyToAddress();
-            mail.Subject = getEmailSubject();
-            mail.HtmlText = getEmailBodyForUser();
+
+            //AFFI English
+            if(productType == Product.ProudctType.AffiEnglish)
+            {
+                mail.Subject = getAFFIEmailSubject();
+                mail.HtmlText = getEmailBodyForUserAFFISite();
+            }
+            //AFFI Spanish
+            else
+            {
+                mail.Subject = getAFFISpanishEmailSubject();
+                mail.HtmlText = getEmailBodyForUserAFFISpanishSite();
+            }
+           
             mailService.sendMail(mail, true);
         }
 
-        internal static void sendEmailToAffi()
+        internal static void sendEmailToAffi(Product.ProudctType productType)
         {
             var emailServer = getSMTPServer();
             IMailService mailService = new SmptMailService(emailServer);
@@ -32,8 +44,19 @@ namespace Questionnaire.Webservices
             mail.MailingAdress = getAFFIToAddress();
             mail.MailFrom = getFromAddress();
             mail.ReplyToAddress = getReplyToAddress();
-            mail.Subject = getEmailSubject();
-            mail.HtmlText = getEmaiBodyforAffi();
+            //AFFI English
+            //if (productType == Product.ProudctType.AffiEnglish)
+            //{
+                mail.Subject = getAFFIEmailSubject();
+                mail.HtmlText = getEmaiBodyforAffi();
+            //}
+            //AFFI Spanish
+            //else
+            //{
+            //    mail.Subject = getAFFISpanishEmailSubject();
+            //    mail.HtmlText = getEmaiBodyforAffiSpanish();
+            //}
+            
             mailService.sendMail(mail, true);
 
         }
@@ -54,9 +77,14 @@ namespace Questionnaire.Webservices
             mailService.sendMail(mail, true);
         }
 
-        private static string getEmailSubject()
+        private static string getAFFIEmailSubject()
         {
             return "New Facility Registration";
+        }
+
+        private static string getAFFISpanishEmailSubject()
+        {
+            return "Nuevo registro de planta";
         }
 
         private static string getSMTPServer()
@@ -79,19 +107,25 @@ namespace Questionnaire.Webservices
             return System.Configuration.ConfigurationManager.AppSettings["AFFIToAddress"];
         }
 
-        private static string getURL()
+        private static string getAFFIURL()
         {
-            return System.Configuration.ConfigurationManager.AppSettings["WebsiteURL"];
+            return System.Configuration.ConfigurationManager.AppSettings["AFFIWebsiteURL"];
+        }
+
+        private static string getAFFISpanishURL()
+        {
+            return System.Configuration.ConfigurationManager.AppSettings["AFFIWebsiteURLSpanish"];
         }
        
 
-        private static string getEmailBodyForUser()
+        private static string getEmailBodyForUserAFFISite()
         {
             string body = @"Dear " + Account.Name + @",
             <br><br>
  
-            Your new account has been created and registered for the AFFI FSMA Self-Assessment Readiness Tool for Facility " + Account.Facility + @". Please go to <a href='" + getURL() + @"'>" + getURL() + @"</a>
-            to complete the Readiness Tool. Your login credenetials are:
+            Your new account has been created and registered for the AFFI FSMA Self-Assessment Readiness Tool for Facility " + Account.Facility + @". 
+            Please go to <a href='" + getAFFIURL() + @"'>" + getAFFIURL() + @"</a>
+            to complete the Readiness Tool. Your login credentials are:
             <br><br>
             Email: " + Account.EmailForUserId + @"
             <br>
@@ -102,6 +136,25 @@ namespace Questionnaire.Webservices
             Thank you";
 
             return body;
+        }
+
+        private static string getEmailBodyForUserAFFISpanishSite()
+        {
+            string body = @"Estimado " + Account.Name + @",
+            <br><br>
+ 
+            Su nueva cuenta ha sido creado y registrado por la herramienta de preparación de autoevaluación AFFI. Por favor vaya a <a href='" + getAFFISpanishURL() + @"'>" + getAFFISpanishURL() + @"</a>
+            para completar la herramienta de preparación. Sus credenciales de inicio de sesión son:
+            <br><br>
+            Email: " + Account.EmailForUserId + @"
+            <br>
+            Contrasena: " + Account.Password + @"
+            <br><br>
+            Por favor guarde este correo electrónico para sus archivos. 
+            <br><br>
+            Gracias";
+
+            return body;               
         }
 
         private static string getEmaiBodyforAffi()
@@ -117,6 +170,19 @@ namespace Questionnaire.Webservices
             return body;
         }
 
+        private static string getEmaiBodyforAffiSpanish()
+        {
+            string body = @"A new account has been created and registered for the AFFI FSMA Spanish Self-Assessment Readiness Tool:
+            <br><br>
+            Name: " + Account.Name + @"
+            <br>
+            Email: " + Account.EmailForUserId + @"
+            <br>
+            Facility: " + Account.Facility;
 
+            return body;
+        }
+
+        
     }
 }
